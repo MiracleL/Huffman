@@ -39,10 +39,6 @@ public:
     QPushButton *pushButton_3;
     QTextEdit *textEdit_2;
     QPushButton *pushButton_4;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label;
-    QLabel *label_2;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_3;
@@ -53,6 +49,8 @@ public:
     QGraphicsView *graphicsView_2;
     QLabel *label_7;
     QGraphicsView *graphicsView_3;
+    QLabel *label;
+    QLabel *label_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -67,6 +65,9 @@ public:
         radioButton = new QRadioButton(centralWidget);
         radioButton->setObjectName(QStringLiteral("radioButton"));
         radioButton->setGeometry(QRect(70, 50, 61, 16));
+        radioButton->setCheckable(true);
+        radioButton->setChecked(true);
+        radioButton->setAutoRepeatDelay(300);
         radioButton_2 = new QRadioButton(centralWidget);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
         radioButton_2->setGeometry(QRect(140, 50, 61, 16));
@@ -85,24 +86,6 @@ public:
         pushButton_4 = new QPushButton(centralWidget);
         pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
         pushButton_4->setGeometry(QRect(160, 90, 51, 20));
-        horizontalLayoutWidget = new QWidget(centralWidget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(30, 90, 421, 21));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(horizontalLayoutWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        horizontalLayout->addWidget(label);
-
-        label_2 = new QLabel(horizontalLayoutWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        horizontalLayout->addWidget(label_2);
-
         horizontalLayoutWidget_2 = new QWidget(centralWidget);
         horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(30, 170, 421, 21));
@@ -139,6 +122,12 @@ public:
         graphicsView_3 = new QGraphicsView(centralWidget);
         graphicsView_3->setObjectName(QStringLiteral("graphicsView_3"));
         graphicsView_3->setGeometry(QRect(360, 300, 91, 20));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(260, 90, 101, 19));
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setGeometry(QRect(30, 90, 91, 19));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -164,13 +153,13 @@ public:
         pushButton->setText(QApplication::translate("MainWindow", "GO", 0));
         pushButton_3->setText(QApplication::translate("MainWindow", "Open", 0));
         pushButton_4->setText(QApplication::translate("MainWindow", "Open", 0));
-        label->setText(QApplication::translate("MainWindow", "Source file", 0));
-        label_2->setText(QApplication::translate("MainWindow", "Destiation file", 0));
         label_3->setText(QApplication::translate("MainWindow", "Uncoded file information", 0));
         label_4->setText(QApplication::translate("MainWindow", "Coded file information", 0));
         label_5->setText(QApplication::translate("MainWindow", "File length:", 0));
         label_6->setText(QApplication::translate("MainWindow", "File head length:", 0));
         label_7->setText(QApplication::translate("MainWindow", "Actual data length:", 0));
+        label->setText(QApplication::translate("MainWindow", "Source file", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Destiation file", 0));
     } // retranslateUi
 
 };

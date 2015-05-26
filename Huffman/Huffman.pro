@@ -13,8 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    huffman.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    huffman.h \
+    huffnode.h \
+    leafnode.h \
+    intnode.h \
+    heap.h
 
 FORMS    += mainwindow.ui
