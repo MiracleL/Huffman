@@ -9,7 +9,7 @@ template <typename E>
 
 class Huffman
 {
-private:
+public:
     Huffnode<E> *root;
 public:
     Huffman(E &val, int freq)

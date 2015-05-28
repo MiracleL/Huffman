@@ -1,9 +1,9 @@
 #ifndef HEAP_H
 #define HEAP_H
 #include"qdebug.h"
-#include<assert.h>
 
-template<typename E>
+
+template<typename E,typename a>
 class heap
 {
 public:
@@ -12,10 +12,11 @@ public:
     int n;
     void siftdown(int pos) {
       while (!isleaf(pos)) { // Stop if pos is a leaf
-        int j = leftchild(pos);  int rc = rightchild(pos);
-        if ((rc < n) && prior(HeapArray[rc], HeapArray[j]))
+        int j = leftchild(pos);
+        int rc = rightchild(pos);
+        if ((rc < n) && a::prior(HeapArray[rc], HeapArray[j]))
           j = rc;            // Set j to greater child's value
-        if (prior(HeapArray[pos], HeapArray[j])) return; // Done
+        if (a::prior(HeapArray[pos], HeapArray[j])) return; // Done
         swap(HeapArray, pos, j);
         pos = j;             // Move down
       }
@@ -29,12 +30,8 @@ public:
         maxsize=max;
         buildHeap();
     }
-    bool prior(E x,E y)
-    {
-        return x<y;
-    }
 
-    void swap(E *HeapA,int pos,int j)
+    void swap(E HeapA[],int pos,int j)
     {
         E x=HeapA[pos];
         HeapA[pos]=HeapA[j];
@@ -72,7 +69,7 @@ public:
             qDebug()<<"The Heap is full";
         int curr=n++;
         HeapArray[curr]=it;
-        while((curr!=0)&&prior(HeapArray[curr],HeapArray[parent(curr)]))
+        while((curr!=0)&&a::prior(HeapArray[curr],HeapArray[parent(curr)]))
         {
             swap(HeapArray,curr,parent(curr));
             curr=parent(curr);
@@ -95,7 +92,7 @@ public:
       {
         swap(HeapArray, pos, --n);          // Swap with last value
         while ((pos != 0) &&
-               (prior(HeapArray[pos], HeapArray[parent(pos)]))) {
+               (a::prior(HeapArray[pos], HeapArray[parent(pos)]))) {
           swap(HeapArray, pos, parent(pos)); // Push up large key
           pos = parent(pos);
         }

@@ -8,11 +8,13 @@ private:
     E it;              //value
     int wgt;        //Weight
 public:
-    leafnode(const E &val, int freq)
+
+    leafnode(E &val,int freq)
     {
         it=val;
         wgt=freq;
     }
+
     int weight()
     {
         return wgt;

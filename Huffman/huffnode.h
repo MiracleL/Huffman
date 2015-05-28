@@ -1,11 +1,11 @@
 #ifndef HUFFNODE_H
 #define HUFFNODE_H
+#include<QString>
 
 template <typename E>
 class Huffnode
 {
 public:
-    Huffnode();
     virtual ~Huffnode(){}
     virtual int weight()=0;
     virtual bool isleaf()=0;

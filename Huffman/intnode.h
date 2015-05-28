@@ -4,11 +4,12 @@
 template <typename E>
 class intnode:public Huffnode<E>
 {
-private:
+public:
     Huffnode<E> *lc;
     Huffnode<E> *rc;
     int wgt;
 public:
+
     intnode(Huffnode<E> *l,Huffnode<E> *r)
     {
         wgt=l->weight()+r->weight();

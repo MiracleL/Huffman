@@ -3,8 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include"huffman.h"
-#include"heap.h"
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -27,6 +26,8 @@ void MainWindow::on_pushButton_4_clicked()
                                                    ".",tr("Text Files(*.txt)"));
     if(!path.isEmpty())
     {
+        for(int i=0;i<127;i++)
+            ascii[i]=0;
         QByteArray ba=path.toLatin1();
         char*p=ba.data();
         std::ifstream t;
@@ -42,11 +43,10 @@ void MainWindow::on_pushButton_4_clicked()
         t.close();                    // close file handle
         while(*buffer != '\0')
         {
-
-            cout << *buffer;
             ascii[(int)(*buffer)]++;
             buffer++;
         }
+        t.close();
 
     }
     else
@@ -73,21 +73,35 @@ void MainWindow::on_pushButton_clicked()
 {
     if(ui->radioButton->isChecked()==true)
     {
-        if(ui->textEdit->toPlainText()!=NULL)
+       // if(ui->textEdit->toPlainText()!=NULL)
         {
-            Huffman<int> **ax;
-            for(int i=0;i<127;i++)
+            Huffman<char> **ax=NULL;
+            QString bm="";
+            char v;
+            int j=0,level=0;
+            int count=127;
+            ax=new Huffman<char> *[count];
+            for(int i=0;i<count;i++)
             {
                 if(ascii[i]!=0)
                 {
-
+                   v=i;
+                   ax[j]=new Huffman<char>(v,ascii[i]);
+                   j++;
                 }
             }
-            Huffman<int> *tree=buildHuff(ax,127);
+            tree=buildHuff(ax,j);
+            trevisit(tree->Root(),bm,level);
+
         }
+
+
+
     }
-    else
+    else if(ui->radioButton_2->isCheckable()==true)
     {
 
     }
+
+
 }
