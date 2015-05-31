@@ -66,19 +66,7 @@ static const uint qt_meta_data_MainWindow[] = {
        0        // eod
 };
 
-void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
-{
-    if (_c == QMetaObject::InvokeMetaMethod) {
-        MainWindow *_t = static_cast<MainWindow *>(_o);
-        switch (_id) {
-        case 0: _t->on_pushButton_4_clicked(); break;
-        case 1: _t->on_pushButton_3_clicked(); break;
-        case 2: _t->on_pushButton_clicked(); break;
-        default: ;
-        }
-    }
-    Q_UNUSED(_a);
-}
+
 
 const QMetaObject MainWindow::staticMetaObject = {
     { &QMainWindow::staticMetaObject, qt_meta_stringdata_MainWindow.data,

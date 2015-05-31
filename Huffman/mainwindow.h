@@ -9,6 +9,7 @@
 #include"huffnode.h"
 #include"qdebug.h"
 #include"string"
+#include<map>
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -29,7 +30,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     int ascii[127]={0};
+    map<char ,string> k;
     Huffman<char> *tree=NULL;
+
 
     template<typename E>
     Huffman<E> *buildHuff(Huffman<E> **array,int count)
@@ -37,7 +40,7 @@ public:
          heap<Huffman<E> *,a> *forest=new heap<Huffman<E> *,a>(array,count,128);
          Huffman<char> *temp1,*temp2,*temp3=NULL;
 
- /**        for(int i=0;i<count;i++)
+      /**  for(int i=0;i<count;i++)
          {
             // Huffman<char> *j=forest->HeapArray[i];
               Huffman<char> *j1=array[i];

@@ -46,7 +46,7 @@ void MainWindow::on_pushButton_4_clicked()
             ascii[(int)(*buffer)]++;
             buffer++;
         }
-        t.close();
+        delete p;
 
     }
     else

@@ -3,7 +3,7 @@
 #include"qdebug.h"
 
 
-template<typename E,typename a>
+template<typename E,typename a>  //a非常有用，一开始就是没有搞清a::prior的作用直接调试了两天，a是为了后面的堆排序创立条件。
 class heap
 {
 public:

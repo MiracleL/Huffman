@@ -65,9 +65,7 @@ public:
         radioButton = new QRadioButton(centralWidget);
         radioButton->setObjectName(QStringLiteral("radioButton"));
         radioButton->setGeometry(QRect(70, 50, 61, 16));
-        radioButton->setCheckable(true);
         radioButton->setChecked(true);
-        radioButton->setAutoRepeatDelay(300);
         radioButton_2 = new QRadioButton(centralWidget);
         radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
         radioButton_2->setGeometry(QRect(140, 50, 61, 16));
@@ -124,10 +122,10 @@ public:
         graphicsView_3->setGeometry(QRect(360, 300, 91, 20));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(260, 90, 101, 19));
+        label->setGeometry(QRect(30, 90, 61, 19));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(30, 90, 91, 19));
+        label_2->setGeometry(QRect(250, 90, 61, 19));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
